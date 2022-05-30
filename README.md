@@ -121,3 +121,6 @@ createdb movies_test
 psql movies_test < movies.psql
 python test_flaskr.py
 ```
+
+## Link deploy
+https://moviescenter123.herokuapp.com/
