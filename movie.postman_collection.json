@@ -1,0 +1,181 @@
+{
+	"info": {
+		"_postman_id": "63b25e22-1f7b-48c7-b4e5-0f00d1d3b163",
+		"name": "movie",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13328567"
+	},
+	"item": [
+		{
+			"name": "post-movie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"American Ultra\",\r\n    \"year\": \"2015\",\r\n    \"genre\": \"Action\",\r\n    \"language\": \"American\",\r\n    \"director\": \"Nima Nourizadeh\",\r\n    \"actors\": \"Jesse Eisenberg, Kristen Stewart, Connie Britton\",\r\n    \"poster_link\": \"https://www.imdb.com/title/tt3316948/mediaviewer/rm2256332800/?ref_=tt_ov_i\",\r\n    \"writer\": \"Max Landis\",\r\n    \"description\": \"A stoner - who is in fact a government agent - is marked as a liability and targeted for extermination. But he's too well-trained and too high for them to handle.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/movies",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post-review",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"David\",\r\n    \"movie\": \"American Ultra\",\r\n    \"description\": \"it very exciting\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/reviews",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-movies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/movies",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-reviews-by-movie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/movies/1/reviews",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"movies",
+						"1",
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patch-movie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"American Ultra ABCD\",\r\n    \"year\": \"2015\",\r\n    \"genre\": \"Action\",\r\n    \"language\": \"American\",\r\n    \"director\": \"Nima Nourizadeh\",\r\n    \"actors\": \"Jesse Eisenberg, Kristen Stewart, Connie Britton\",\r\n    \"poster_link\": \"https://www.imdb.com/title/tt3316948/mediaviewer/rm2256332800/?ref_=tt_ov_i\",\r\n    \"writer\": \"Max Landis\",\r\n    \"description\": \"A stoner - who is in fact a government agent - is marked as a liability and targeted for extermination. But he's too well-trained and too high for them to handle.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/movies/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"movies",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-movie",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/movies/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"movies",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-review",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/reviews/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"reviews",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
