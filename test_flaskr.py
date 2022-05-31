@@ -77,6 +77,7 @@ class MovieTestCase(unittest.TestCase):
     def tearDown(self):
         pass
 
+# test create, get the movies and the reviews
     def test_create_new_movie(self):
         res = self.client().post("/movies", json=self.new_movie, headers=self.headers)
         data = json.loads(res.data)
@@ -101,8 +102,12 @@ class MovieTestCase(unittest.TestCase):
         self.assertTrue(data["movies"])
         self.assertTrue(data["total_movies"])
 
+# If you run delete movie or review function, you should comment test_get_review_by_movie function
     def test_get_review_by_movie(self):
-        res = self.client().get("/movies/1/reviews", headers=self.headers)
+        find_movie = Movie.query.all()
+
+        res = self.client().get(
+            f"/movies/{find_movie[0].id}/reviews", headers=self.headers)
 
         self.assertEqual(res.status_code, 200)
 
@@ -128,10 +133,10 @@ class MovieTestCase(unittest.TestCase):
     def test_422_if_delete_movie_not_success(self):
         res = self.client().delete("/reviews/0", headers=self.headers)
 
-        self.assertEqual(res.status_code, 422)
+        self.assertEqual(res.status_code, 404)
 
 # delete
-# note: You should comment test_delete_review and test_delete_review when run the first time
+# note: You should comment test_delete_review and test_delete_review when run the functions above
 
     # def test_delete_review(self):
     #     find_review = Review.query.all()
@@ -143,7 +148,7 @@ class MovieTestCase(unittest.TestCase):
     #     self.assertEqual(res.status_code, 200)
     #     self.assertEqual(review, None)
 
-    # def test_delete_review(self):
+    # def test_delete_Movie(self):
     #     find_movie = Movie.query.all()
     #     res = self.client().delete(
     #         "/movies/{}".format(find_movie[0].id), headers=self.headers)

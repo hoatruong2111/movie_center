@@ -45,6 +45,16 @@
 		{
 			"name": "post-review",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -87,9 +97,26 @@
 		},
 		{
 			"name": "get-reviews-by-movie",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "{{host}}/movies/1/reviews",
 					"host": [
@@ -121,7 +148,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"American Ultra ABCD\",\r\n    \"year\": \"2015\",\r\n    \"genre\": \"Action\",\r\n    \"language\": \"American\",\r\n    \"director\": \"Nima Nourizadeh\",\r\n    \"actors\": \"Jesse Eisenberg, Kristen Stewart, Connie Britton\",\r\n    \"poster_link\": \"https://www.imdb.com/title/tt3316948/mediaviewer/rm2256332800/?ref_=tt_ov_i\",\r\n    \"writer\": \"Max Landis\",\r\n    \"description\": \"A stoner - who is in fact a government agent - is marked as a liability and targeted for extermination. But he's too well-trained and too high for them to handle.\"\r\n}",
+					"raw": "{\r\n    \"title\": \"American Ultra ABCDE\",\r\n    \"year\": \"2015\",\r\n    \"genre\": \"Action\",\r\n    \"language\": \"American\",\r\n    \"director\": \"Nima Nourizadeh\",\r\n    \"actors\": \"Jesse Eisenberg, Kristen Stewart, Connie Britton\",\r\n    \"poster_link\": \"https://www.imdb.com/title/tt3316948/mediaviewer/rm2256332800/?ref_=tt_ov_i\",\r\n    \"writer\": \"Max Landis\",\r\n    \"description\": \"A stoner - who is in fact a government agent - is marked as a liability and targeted for extermination. But he's too well-trained and too high for them to handle.\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -144,6 +171,16 @@
 		{
 			"name": "delete-movie",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
@@ -162,6 +199,16 @@
 		{
 			"name": "delete-review",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {

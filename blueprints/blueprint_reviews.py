@@ -32,6 +32,8 @@ def bindReviews(reviews):
         result.append(item)
     return result
 
+# get review by movie endpoint
+
 
 @routes.route("/movies/<int:movie_id>/reviews")
 @requires_auth(PERMISSON['CAN_GET_REVIEWS'])
@@ -55,6 +57,7 @@ def get_review_by_movie(payload, movie_id):
         abort(500)
 
 
+# add review endpoint
 @routes.route("/reviews", methods=['POST'])
 @requires_auth(PERMISSON['CAN_POST_REVIEWS'])
 def add_Review(payload):
@@ -88,6 +91,7 @@ def add_Review(payload):
         abort(422)
 
 
+# delete review endpoint
 @routes.route("/reviews/<int:review_id>", methods=['DELETE'])
 @requires_auth(PERMISSON['CAN_DELETE_REVIEWS'])
 def delete_review(payload, review_id):

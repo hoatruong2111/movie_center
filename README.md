@@ -1,4 +1,5 @@
 # Backend - Movie Center
+# Motivation
 
 ## Setting up the Backend
 
@@ -12,8 +13,6 @@
 
 ```bash
 pip install -r requirements.txt
-
-pip install python-jose
 ```
 
 #### Key Pip Dependencies
@@ -36,14 +35,6 @@ With Postgres running, create a `movies` database:
 ```bash
 createbd movies
 ```
-
-Populate the database using the `movies.psql` file provided. From the `backend` folder in terminal run:
-
-```bash
-psql movies < movies.psql
-```
-
-Replace your password of Postgres in models.py
 
 ### Run the Server
 
@@ -94,6 +85,7 @@ or
      - Enable RBAC
      - Enable Add Permissions in the Access Token
 5. Create new API permissions:
+    - `get:movies`
     - `get:reviews-detail`
     - `post:movies`
     - `post:reviews`
@@ -106,6 +98,18 @@ or
      - can `get:movies`
    - Manager
      - can perform all actions
+
+## User info
+
+1. Manager
+  - username: lofek92171@tsclip.com
+  - password: 123456789@Bnm
+  - token: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InVFQkRGQm5pZkotWjg5Wl9CclRRViJ9. eyJpc3MiOiJodHRwczovL2Rldi1nZ2dkZWlkNi51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjI5MzVkZDczMjExNjkwMDY5Y2Q0ZGM3IiwiYXVkIjoibW92aWUtY2VudGVyIiwiaWF0IjoxNjUzOTc1Mzc4LCJleHAiOjE2NTM5ODI1NzgsImF6cCI6IkpXb21uQWx1dUlsMGNVUDZTS0ZJcFV1eGpkWHRHOVVGIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6bW92aWVzIiwiZGVsZXRlOnJldmlld3MiLCJnZXQ6bW92aWVzIiwiZ2V0OnJldmlld3MtZGV0YWlsIiwicGF0Y2g6bW92aWVzIiwicG9zdDptb3ZpZXMiLCJwb3N0OnJldmlld3MiXX0.eLQBO_YCVaO3-RltqhpSIfVWmZpVOkxCL3y50Bk7qHOOFi8cm2eYT6yYi69zz9XZuXTzpTeEcis6IgPqENGFm2LcTgL0c6TF0ZnY3EEVvscYx-V13gCIL152EGeCo4VzXq-vmkXA1SwaRh-pbcfR9iZlA3Na_K6JS7Q9yWr4A_sBaWu4g1VaOMc82CLtkdHoQMu67k6LbSTr-oDpABptk6A3NndNzu-FMQvlv9lNZDCUC5OXquaPRtO-1ll7nhN2uQOKh-OpTBWVtRJLSdBrrUPrpUVJYZVp-AVS72GiDFC9Bb8z_C4lMGJ-vryehJWyYIlneqAfPFZnI8eU0Ym2kQ
+
+2. Customer
+  - username: cabos73317@sinyago.com
+  - password: 123456789@Bnm
+  - token: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InVFQkRGQm5pZkotWjg5Wl9CclRRViJ9.eyJpc3MiOiJodHRwczovL2Rldi1nZ2dkZWlkNi51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjI5NGNmNThkYjA0MWYwMDY4NDEwMGJhIiwiYXVkIjoibW92aWUtY2VudGVyIiwiaWF0IjoxNjUzOTc2NjYzLCJleHAiOjE2NTM5ODM4NjMsImF6cCI6IkpXb21uQWx1dUlsMGNVUDZTS0ZJcFV1eGpkWHRHOVVGIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6bW92aWVzIiwiZ2V0OnJldmlld3MtZGV0YWlsIl19.E4cBPNtExBKz0nqwt9Z30qhEGnMBwyB4acWxABdbdKweOnERA5WiO1EAQ5bhNh9BXxLWfWqTKha_F_IvtwBa-Y7Zm2LWCUnn1XGg3nN9poGUsLg1C77aVuTmxD5eUmBWXeecjX7iEQ8FmR6vSQxTN_RqTkv5lVc0tD6mKxYtgdRXVoxBAa6WthWgB6wWOGkQ4ABkz3BDrTigxlTGD-k6r2AE5TQwTnM7xTWM90QjLP-6RxzavQ_EKqiNSSFZ8_wplMRO_nPf5dqyA0wk3x0uITOJcwyYEBd5-dntIr9Np9YUrdnL0euIq1EQPE9d9kDZxBM3G-rIgcjz9nLH6fJu3g
 
 ## Testing
 

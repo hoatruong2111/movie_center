@@ -14,6 +14,8 @@ PERMISSON = {
     'CAN_DELETE_MOVIES': os.getenv('CAN_DELETE_MOVIES'),
     'CAN_DELETE_REVIEWS': os.getenv('CAN_DELETE_REVIEWS'),
 }
+
+
 def bindMovies(movies):
     result = []
     for movie in movies:
@@ -33,6 +35,8 @@ def bindMovies(movies):
         result.append(item)
     return result
 
+# get movie endpoint
+
 
 @routes.route('/movies', methods=['GET'])
 def get_movies():
@@ -50,6 +54,8 @@ def get_movies():
     except Exception as e:
         abort(422)
 
+# add movie endpoint
+
 
 @routes.route("/movies", methods=['POST'])
 @requires_auth(PERMISSON['CAN_POST_MOVIES'])
@@ -65,7 +71,6 @@ def add_movie(payload):
         new_poster_link = body.get("poster_link")
         new_writer = body.get("writer")
         new_description = body.get("description")
-
 
         movie = Movie(
             title=new_title,
@@ -93,6 +98,8 @@ def add_movie(payload):
     except Exception as e:
         abort(422)
 
+# edit movie endpoint
+
 
 @routes.route("/movies/<int:movie_id>", methods=['PATCH'])
 @requires_auth(PERMISSON["CAN_PATCH_MOVIES"])
@@ -111,7 +118,7 @@ def update_movie(payload, movie_id):
 
         movie = Movie.query.filter(Movie.id == movie_id).one_or_none()
 
-        ## if not, send 404
+        # if not, send 404
         if movie.id == '':
             abort(404)
 
@@ -134,7 +141,11 @@ def update_movie(payload, movie_id):
         )
 
     except Exception as e:
-        abort(422)
+        if e.code == 404:
+            abort(404)
+        abort(500)
+
+# delete movie endpoint
 
 
 @routes.route("/movies/<int:movie_id>", methods=['DELETE'])
@@ -156,4 +167,6 @@ def delete_movie(payload, movie_id):
             }
         )
     except Exception as e:
-        abort(422)
+        if e.code == 404:
+            abort(404)
+        abort(500)
